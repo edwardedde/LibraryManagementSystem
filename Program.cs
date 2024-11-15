@@ -1,4 +1,4 @@
-﻿/*namespace LibraryManagementSystem;
+﻿namespace LibraryManagementSystem;
 
 class Program
 {
@@ -38,10 +38,18 @@ class Program
             }
             else
             {
-                library.SaveBooks(filePath);
-                Console.WriteLine("Exiting the program. Goodbye!");
-                break;
+                if(Choice == "5")
+                {
+                    library.SaveBooks(filePath);
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("enter number 5 to exit program");
+                    continue;
+                }
             }
         }
     }
-}*/
+}

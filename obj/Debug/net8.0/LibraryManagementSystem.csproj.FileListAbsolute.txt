@@ -12,3 +12,4 @@ C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\refint\Libra
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.pdb
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.genruntimeconfig.cache
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\ref\LibraryManagementSystem.dll
+C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.sourcelink.json

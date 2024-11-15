@@ -1,4 +1,4 @@
-namespace LibraryManagementSystem;
+/*namespace LibraryManagementSystem;
 
 class Program
 {
@@ -47,4 +47,4 @@ class Program
             }
         }
     }
-}
+}*/
