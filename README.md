@@ -1,12 +1,24 @@
-This is my first project i pushed into GitHub. :)
+Library Management System - My First GitHub Project
 
-The files that contain the code are Program.cs, Library.cs and Book.cs.
+This is my first project pushed to GitHub! 🎉
+Project Overview:
 
-I got this idea from chatgpt (surprise surprise) by writing "give me a coding task in c# language that would be presented to a person who is being intervied for a junior developer role". :D Impressive right?
-This is the start of my coding journey (atleast publicly).
+This program is a simple library management system written in C#. It allows users to add, search, view, and delete books from a library. The program also saves and loads books using JSON serialization, ensuring that the data persists between sessions.
+Files:
 
-So into the code, the program is simple, it consist of three cs files and one json.
+    Program.cs - The main entry point of the application, where user interaction occurs.
+    Library.cs - Contains the logic for managing the library's collection of books.
+    Book.cs - Defines the structure of a book object.
+    books.json - Stores the data of books in JSON format.
 
-The program manages a library, where you can add, search,
-view and delete books. Also When the program is started it loads the books that were previously added and when the program is ended it saves the books that were added during the session.
-Using Newtonsof.Json SerializeObject and DeserializeObject methods.
+How It Works:
+
+    Upon starting, the program loads books that were previously added from the books.json file.
+    You can add, search, view, and delete books within the session.
+    When the program ends, it saves any newly added books to books.json using the Newtonsoft.Json library's SerializeObject and DeserializeObject methods to handle the data.
+
+Inspiration:
+
+I got the idea for this project from ChatGPT by asking, "Give me a coding task in C# that would be presented to a person being intervied for a junior developer role." 😄
+
+This is the beginning of my coding journey (at least publicly)! Feel free to explore the code and provide feedback!
