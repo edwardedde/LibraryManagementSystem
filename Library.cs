@@ -1,37 +1,38 @@
 using System.Text.Json;
+using Newtonsoft.Json;
+
 namespace LibraryManagementSystem
 {
     class Library
     {
-        public List<Book> BookList { get; private set; } = new List<Book>();
-
-        public void SaveBooks(string filePath)
+        public List<Book> BookList = new List<Book>();
+        public void SaveBooks(string filePath) ///enter the file where to store books
         {
             try
             {
-                string json = JsonSerializer.Serialize(BookList);
-                File.WriteAllText(filePath, json);
+                string json = JsonConvert.SerializeObject(BookList, Formatting.Indented); ///makes book objects into json string
+                File.WriteAllText(filePath, json); ///writes the string into the file
                 Console.WriteLine("Library saved successfully.");
             }
-            catch (Exception ex)
+            catch (Exception ex)///error handling, writes to console where error occured
             {
                 Console.WriteLine($"An error occurred while saving the library: {ex.Message}");
             }
         }
 
-         public void LoadBooks(string filePath)
+         public void LoadBooks(string filePath)///enter the file where it should load from
         {
             try
             {
-                if (File.Exists(filePath))
+                if (File.Exists(filePath)) ///checks if file exists
                 {
                     string json = File.ReadAllText(filePath);
-                    BookList = JsonSerializer.Deserialize<List<Book>>(json) ?? new List<Book>();
-                    Console.WriteLine("Library loaded successfully.");
+                    BookList = JsonConvert.DeserializeObject<List<Book>>(json); 
+                    Console.WriteLine("Library loaded successfully.");///first reads text from file and then creates Book objects from the json string and adds them into a List
                 }
                 else
                 {
-                    Console.WriteLine("No saved library found. Starting with an empty library.");
+                    Console.WriteLine("No saved library found. checks if file exists");
                 }
             }
             catch (Exception ex)
@@ -41,7 +42,7 @@ namespace LibraryManagementSystem
         }
 
 
-        public void AddBook()
+        public void AddBook() ///three while loops to check user inputs
         {
             string title;
             string author;
@@ -52,7 +53,7 @@ namespace LibraryManagementSystem
                 Console.Write("Enter the title of the book: ");
                 title = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(title))
+                if (string.IsNullOrEmpty(title)) ///empty input check
                 {
                     Console.WriteLine("Title cannot be empty. Please enter a title.");
                 }
@@ -67,7 +68,7 @@ namespace LibraryManagementSystem
                 Console.Write("Enter the author of the book: ");
                 author = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(author))
+                if (string.IsNullOrEmpty(author))
                 {
                     Console.WriteLine("Author cannot be empty. Please enter an author.");
                 }
@@ -86,7 +87,7 @@ namespace LibraryManagementSystem
                 {
                     year = int.Parse(inputYear);
 
-                    if (year > DateTime.Now.Year)
+                    if (year > DateTime.Now.Year) ///year cannot be in the future
                     {
                         Console.WriteLine("Year cannot be in the future. Please enter a valid year.");
                     }
@@ -101,12 +102,12 @@ namespace LibraryManagementSystem
                 }
             }
 
-            Book newBook = new Book(title, author, year);
+            Book newBook = new Book(title, author, year); ///add new book to the BookList
             BookList.Add(newBook);
             Console.WriteLine($"Book '{title}' by {author} added successfully!");
         }
 
-        public Book SearchBooks(string title) //figure this out
+        public Book SearchBooks(string title) ///Uses book class so that it can access original Title and compare it to the parameter
         {
             foreach (var book in BookList)
             {
@@ -118,12 +119,12 @@ namespace LibraryManagementSystem
             return null;
         }
 
-        public void SearchBook()
+        public void SearchBook() ///used in main
         {
             Console.Write("Enter the title to search: ");
             string title = Console.ReadLine();
 
-            Book book = SearchBooks(title);
+            Book book = SearchBooks(title); /// result assigned to book object 
             if (book != null)
             {
                 Console.WriteLine($"Book found\nTitle: {book.Title}\nAuthor: {book.Author}\nYear: {book.Year}");
@@ -133,7 +134,7 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Didn't find any book with that title.");
             }
         }
-        public void ViewBooks()
+        public void ViewBooks() /// loops through list of books and writes out each book with details(if there are any)
         {
             if (BookList.Count == 0)
             {
@@ -155,11 +156,11 @@ namespace LibraryManagementSystem
             Console.Write("Enter the title of the book you want to delete: ");
             string title = Console.ReadLine().ToLower();
 
-            Book book = SearchBooks(title);
+            Book book = SearchBooks(title); ///searches book by title
 
             if (book != null)
             {
-                Console.Write($"Book found. Are you sure you want to delete '{book.Title}'? (Y/N): ");
+                Console.Write($"Book found. Are you sure you want to delete '{book.Title}'? (Y/N): "); ///double checks if user wants to delete book
                 string choice = Console.ReadLine().ToLower();
 
                 if (choice == "y")
@@ -177,6 +178,5 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Didn't find any book with that title.");
             }
         }
-
     }
 }

@@ -13,3 +13,6 @@ C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManag
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.genruntimeconfig.cache
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\ref\LibraryManagementSystem.dll
 C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.sourcelink.json
+C:\Users\eeduu\Työpöytä\LibraryManagementSystem\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryManagementSystem.csproj.AssemblyReference.cache
+C:\Users\eeduu\Työpöytä\LibraryManagementSystem\obj\Debug\net8.0\LibraryM.4D120AE7.Up2Date

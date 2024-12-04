@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8v/o3K4A8zc=",
+  "dgSpecHash": "+LlUGQDBIlY=",
   "success": true,
   "projectFilePath": "C:\\Users\\eeduu\\Työpöytä\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eeduu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
