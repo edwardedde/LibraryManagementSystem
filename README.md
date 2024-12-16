@@ -12,7 +12,7 @@ Files:
 
 How It Works:
     Upon starting, the program loads books that were previously added from the books.json file.
-    You can add, search, view, and delete books within the session.
+    You can add, search, view, delete and edit books within the session.
     When the program ends, it saves any newly added books to books.json using the Newtonsoft.Json library's SerializeObject and DeserializeObject methods to handle the data.
 
 
