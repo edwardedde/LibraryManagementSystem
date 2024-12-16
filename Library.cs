@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Newtonsoft.Json;
 
 namespace LibraryManagementSystem
@@ -40,13 +41,13 @@ namespace LibraryManagementSystem
             }
         }
 
-
-        public void AddBook() ///three while loops to check user inputs
+        public void AddBook() ///four while loops to check user inputs
         {
             string title;
             string author;
             int year;
-
+            string description = string.Empty; /// has to be initializec because user might not want to assign anything
+            
             while (true)
             {
                 Console.Write("Enter the title of the book: ");
@@ -101,7 +102,36 @@ namespace LibraryManagementSystem
                 }
             }
 
-            Book newBook = new Book(title, author, year); ///add new book to the BookList
+            while(true)///asks if the user want to give a description yes or no
+            {
+                Console.WriteLine("Do you want to give a description? Y/N");
+                string inputanswer = Console.ReadLine();
+
+                try
+                {
+                    if (inputanswer.ToUpper() == "Y")
+                    {
+                        Console.WriteLine("Write description");
+                        description = Console.ReadLine();
+                        break;
+                    }
+                    else
+                    {
+                        if(inputanswer.ToUpper() == "N")
+                        {
+                            break;
+                        }                        
+                    }
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("input answer wasnt Y or N!");
+                }
+
+            }
+           
+            Book newBook = new Book(title, author, year, description); ///add new book to the BookList
             BookList.Add(newBook);
             Console.WriteLine($"Book '{title}' by {author} added successfully!");
         }
@@ -141,14 +171,14 @@ namespace LibraryManagementSystem
             }
             else
             {
-                Console.WriteLine("Books in the library:");
+                Console.WriteLine("Books in the library:\n-------");
                 foreach (var book in BookList)
                 {
-                    Console.WriteLine($"Title: {book.Title} | Author: {book.Author} | Year: {book.Year}");
+                    Console.WriteLine($"Title: {book.Title} | Author: {book.Author} | Year: {book.Year} | Description: {book.Description}");
                 }
+                Console.WriteLine("-------");
             }
         }
-
 
         public void DeleteBook()
         {
@@ -176,6 +206,87 @@ namespace LibraryManagementSystem
             {
                 Console.WriteLine("Didn't find any book with that title.");
             }
+        }
+
+        public void EditBook() ///able to edit all properties of a book in the booklist
+        {
+            Console.WriteLine("Enter the Title of the book you would like to edit");
+            string bookForEdit = Console.ReadLine();
+
+            if(string.IsNullOrEmpty(bookForEdit))///checks for non empty input
+            {
+                Console.WriteLine("Title cant be empty");
+            }
+            else
+            {
+                foreach (var book in BookList)///loops Booklist 
+                {
+                    if (book.Title == bookForEdit)///searches by title 
+                    {
+                        while (true)///allows user to stay in the editing mode of certain book before done editing
+                        {
+                            Console.WriteLine("--------------\nfound the book");
+                            Console.WriteLine("what part would you like to modify?\n1.Title\n2.Author\n3.Year\n4.Description\n5.exit editing mode");
+                            string choiceOfEdit = Console.ReadLine();
+
+                            if (choiceOfEdit == "1")
+                            {
+                                Console.Write("Edit title of the book:");
+                                string newTitle = Console.ReadLine();
+                                book.Title = newTitle;
+
+                            }
+                            else if (choiceOfEdit == "2")
+                            {
+                                Console.Write("Edit author of the book:");
+                                string newAuthor = Console.ReadLine();
+                                book.Author = newAuthor;
+
+                            }
+                            else if (choiceOfEdit == "3")
+                            {
+                                Console.Write("Edit year of the book:");
+                                string newYear = Console.ReadLine();
+
+                                try
+                                {
+                                    int NewYear = int.Parse(newYear);
+
+                                    if (NewYear > DateTime.Now.Year) ///check valid year
+                                    {
+                                        Console.WriteLine("Year cannot be in the future. Please enter a valid year.");
+                                    }
+                                    else
+                                    {
+                                        book.Year = NewYear;
+                                    }
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Invalid year format. Please enter a valid year.");
+                                }
+                            }
+                            else if (choiceOfEdit == "4")
+                            {
+                                Console.Write("Edit description of the book:");
+                                string newDescription = Console.ReadLine();
+                                book.Description = newDescription;
+
+                            }
+                            else if (choiceOfEdit == "5")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("invalid input, try again!");
+                            }
+                        }
+                        break;
+                    }  
+                }
+                Console.WriteLine("No book found with that title, check upper and lowercase");
+            }   
         }
     }
 }
