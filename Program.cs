@@ -13,14 +13,14 @@ class Program
 
         Console.WriteLine("Welcome to the Library Management System\n-----------------------------------------");
 
-        Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Exit");
-
         while(true)
-        {           
+        {
+            Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit");
+
             Console.Write("Enter your choice: ");
             string Choice = Console.ReadLine();
             
-            if(Choice == "1")
+            if(Choice == "1")///maybe change to swicth case 
             { 
                 library.AddBook();             
             }
@@ -36,9 +36,13 @@ class Program
             {
                 library.DeleteBook();
             }
+            else if(Choice == "5")
+            {
+                library.EditBook();
+            }
             else
             {
-                if(Choice == "5")
+                if(Choice == "6")
                 {
                     library.SaveBooks(filePath);
                     Console.WriteLine("Exiting the program. Goodbye!");

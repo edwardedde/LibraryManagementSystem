@@ -1,17 +1,14 @@
 [
   {
-    "Title": "hakuna",
-    "Author": "matata",
-    "Year": 1778
+    "Title": "The subtle art of not giving a fuck",
+    "Author": "Mark Manson",
+    "Year": 2016,
+    "Description": "Great book!"
   },
   {
-    "Title": "harry potter",
-    "Author": "j.k rowling",
-    "Year": 2004
-  },
-  {
-    "Title": "pp",
-    "Author": "gg",
-    "Year": 1234
+    "Title": "The 48 Laws of Power",
+    "Author": "Robert Greene",
+    "Year": 1998,
+    "Description": "self-help book"
   }
 ]
