@@ -13,46 +13,37 @@ class Program
 
         Console.WriteLine("Welcome to the Library Management System\n-----------------------------------------");
 
+
         while(true)
         {
             Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit");
 
             Console.Write("Enter your choice: ");
             string Choice = Console.ReadLine();
-            
-            if(Choice == "1")///maybe change to swicth case 
-            { 
-                library.AddBook();             
-            }
-            else if(Choice == "2")
+
+            switch (Choice)
             {
-                library.SearchBook();
-            }
-            else if(Choice == "3")
-            {
-                library.ViewBooks();
-            }
-            else if(Choice == "4")
-            {
-                library.DeleteBook();
-            }
-            else if(Choice == "5")
-            {
-                library.EditBook();
-            }
-            else
-            {
-                if(Choice == "6")
-                {
-                    library.SaveBooks(filePath);
-                    Console.WriteLine("Exiting the program. Goodbye!");
+                case "1":
+                    library.AddBook();
                     break;
-                }
-                else
-                {
-                    Console.WriteLine("enter number 5 to exit program");
-                    continue;
-                }
+                case "2":
+                    library.SearchBook();
+                    break;
+                case "3":
+                    library.ViewBooks();
+                    break;
+                case "4":
+                    library.DeleteBook();
+                    break;
+                case "5":
+                    library.EditBook();
+                    break;
+                case "6":
+                    return;
+                default:
+                    Console.WriteLine("-------\nInvalid input\n-------");
+                    break;
+
             }
         }
     }
