@@ -6,10 +6,8 @@ class Program
     static void Main(string[] args)
     {
         Library library = new Library();
-
-
         User user = new User(); ///empty instance so that user can be created
-
+        CheckUserAccount CheckAgent = new CheckUserAccount();
         
          
 
@@ -26,9 +24,9 @@ class Program
             case "1":
                 User.CreateAccount(user);
                 break;
-            /*case "2":
-                User.Login(user);*/
-
+            case "2":
+                CheckAgent.Login(user);
+                break ;
             default:
                 return;
 
