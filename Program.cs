@@ -19,6 +19,7 @@ class Program
         Console.WriteLine("LogIn by pressing 1 or create account by pressing 2");
         string LogInChoice = Console.ReadLine();
 
+
         switch (LogInChoice)
         {
             case "1":
@@ -26,7 +27,7 @@ class Program
                 break;
             case "2":
                 CheckAgent.Login(user);
-                break ;
+                return ;
             default:
                 return;
 
@@ -42,6 +43,7 @@ class Program
 
             Console.Write("Enter your choice: ");
             string Choice = Console.ReadLine();
+            
 
             switch (Choice)
             {
