@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    class LogIn
+    class CheckUserAccount
     {
-        string UserName { get; set; }
-        public string Password { get; set; }
-
-        public void Login()
+        
+        public static void Login(User user)
         {
             ///to be continued...
-            
+            ///validate inserted credentials
+            ///  
        
         }
        

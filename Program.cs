@@ -7,6 +7,8 @@ class Program
     {
         Library library = new Library();
 
+        /*User user = new User("", "");*/ ///"empty" instance so that user can be created
+
         string filePath = "library.json";
 
         library.LoadBooks(filePath);
@@ -14,8 +16,24 @@ class Program
         Console.WriteLine("Welcome to the Library Management System\n-----------------------------------------");
 
 
-        while(true)
+        /*while(true)
         {
+            Console.WriteLine("LogIn by pressing 1 or create account by pressing 2");
+            string LogInChoice = Console.ReadLine();
+            
+            switch(LogInChoice)
+            {
+                case "1":
+                    User.CreateAccount(user);
+                    break;
+                case "2":
+                    ///login
+
+                default:
+                    break;
+
+            }*/
+
             Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit");
 
             Console.Write("Enter your choice: ");
