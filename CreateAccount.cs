@@ -41,7 +41,8 @@ namespace LibraryManagementSystem
                     if(password.Length > 6)
                     {
                         user.Password = password;
-                        Console.WriteLine("User created, now you can use the system");
+                        Console.WriteLine($"User {username} created, now you can use the system\n-------");
+                        
                         break;
                     }
                     else

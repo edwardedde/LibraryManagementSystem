@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    class CheckUserAccount
+    public class CheckUserAccount
     {
         
-        public static void Login(User user)
+        public void Login(User user)
         {
             ///to be continued...
             ///validate inserted credentials

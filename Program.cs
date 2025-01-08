@@ -7,32 +7,38 @@ class Program
     {
         Library library = new Library();
 
-        /*User user = new User("", "");*/ ///"empty" instance so that user can be created
+
+        User user = new User(); ///empty instance so that user can be created
+
+        
+         
 
         string filePath = "library.json";
 
         library.LoadBooks(filePath);
 
-        Console.WriteLine("Welcome to the Library Management System\n-----------------------------------------");
 
+        Console.WriteLine("LogIn by pressing 1 or create account by pressing 2");
+        string LogInChoice = Console.ReadLine();
 
-        /*while(true)
+        switch (LogInChoice)
         {
-            Console.WriteLine("LogIn by pressing 1 or create account by pressing 2");
-            string LogInChoice = Console.ReadLine();
-            
-            switch(LogInChoice)
-            {
-                case "1":
-                    User.CreateAccount(user);
-                    break;
-                case "2":
-                    ///login
+            case "1":
+                User.CreateAccount(user);
+                break;
+            /*case "2":
+                User.Login(user);*/
 
-                default:
-                    break;
+            default:
+                return;
 
-            }*/
+        }
+
+        Console.WriteLine("Welcome to the Library Management System\n----------------------------------------");
+
+
+        while (true)
+        {
 
             Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit");
 
@@ -63,5 +69,6 @@ class Program
                     break;
 
             }
+        }
     }
 }
