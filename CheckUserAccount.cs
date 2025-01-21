@@ -39,7 +39,7 @@ namespace LibraryManagementSystem
                 if (matchedUser != null)
                 {
                     Console.WriteLine("Login successful. Welcome, " + matchedUser.Username + "!");
-                    return; // continu3e to the next part of the program
+                     // continu3e to the next part of the program
                 }
                 else
                 {
