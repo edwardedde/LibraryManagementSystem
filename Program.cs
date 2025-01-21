@@ -21,25 +21,35 @@ class Program
 
         creatAccount.LoadAccounts(filePathAccounts);
 
-        
-
-
-        Console.WriteLine("Create an account by pressing 1 or Login account by pressing 2");
-        string LogInChoice = Console.ReadLine();
-
-
-        switch (LogInChoice)
+        while (true)
         {
-            case "1":
-                creatAccount.CreateAccount(user);
-                creatAccount.SaveAccounts(filePathAccounts);
-                break;
-            case "2":
-                CheckAgent.Login();
-                return ;
-            default:
-                return;
+            Console.WriteLine("Create an account by pressing 1 or Login account by pressing 2");
+            string LogInChoice = Console.ReadLine();
 
+            switch (LogInChoice)
+            {
+                case "1":
+                    // Create a new account
+                    creatAccount.CreateAccount(user);
+                    creatAccount.SaveAccounts(filePathAccounts);
+                    break;
+
+                case "2":
+                    // Attempt login
+                    if (CheckAgent.Login()) // If login is successful
+                    {
+                        Console.WriteLine("Login successful! Welcome to the library system.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Login failed. Returning to the main menu.\n");
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.\n");
+                    break;
+            }
         }
 
         Console.WriteLine("Welcome to the Library Management System\n----------------------------------------");
