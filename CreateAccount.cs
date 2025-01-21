@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace LibraryManagementSystem
 {
-    class CreatAccount
+    public class CreateAccount
     {
         public List<User> UserAccounts = new List<User>(); ///list to store created accounts
                                                            ///create user account
@@ -26,29 +26,8 @@ namespace LibraryManagementSystem
             }
         }
 
-        public void LoadAccounts(string filePathAccounts)///enter the file where it should load from
-        {
-            try
-            {
-                if (File.Exists(filePathAccounts)) ///checks if file exists
-                {
-                    string json = File.ReadAllText(filePathAccounts);
-                    UserAccounts = JsonConvert.DeserializeObject<List<User>>(json);
-                    Console.WriteLine("Accounts loaded successfully.");///first reads text from file and then creates Book objects from the json string and adds them into a List
-                }
-                else
-                {
-                    Console.WriteLine("No saved accounts found. checks if file exists");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred while loading the accounts: {ex.Message}");
-            }
-        }
 
-
-        public void CreateAccount(User user)
+        public void CreateAccounts(User user)
         {
             string username;
             string password;

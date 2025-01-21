@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace LibraryManagementSystem;
 
 class Program
 {
@@ -6,8 +8,11 @@ class Program
     static void Main(string[] args)
     {
         Library library = new Library();
+
         User user = new User(); ///empty instance so that user can be created
-        CreatAccount creatAccount = new CreatAccount();
+
+        CreateAccount creatAccount = new CreateAccount();
+
 
         CheckUserAccount CheckAgent = new CheckUserAccount();
         
@@ -19,7 +24,7 @@ class Program
 
         library.LoadBooks(filePath);
 
-        creatAccount.LoadAccounts(filePathAccounts);
+        CheckAgent.LoadAccounts(filePathAccounts);
 
         bool loggedIn = false;
 
@@ -32,7 +37,7 @@ class Program
             {
                 case "1":
                     // Create a new account
-                    creatAccount.CreateAccount(user);
+                    creatAccount.CreateAccounts(user);
                     creatAccount.SaveAccounts(filePathAccounts);
                     break;
 
