@@ -32,6 +32,7 @@ class Program
         {
             case "1":
                 creatAccount.CreateAccount(user);
+                creatAccount.SaveAccounts(filePathAccounts);
                 break;
             case "2":
                 CheckAgent.Login();
@@ -71,6 +72,7 @@ class Program
                     library.EditBook();
                     break;
                 case "6":
+                    library.SaveBooks(filePath);
                     return;
                 default:
                     Console.WriteLine("-------\nInvalid input\n-------");

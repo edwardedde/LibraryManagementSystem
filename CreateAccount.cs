@@ -90,6 +90,7 @@ namespace LibraryManagementSystem
             User newUser = new User(username, password); ///add new user to list
             UserAccounts.Add(newUser);
             Console.WriteLine($"{username} created successfully!");
+            SaveAccounts("accounts.json");
         }
     }
 }

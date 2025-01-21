@@ -134,6 +134,7 @@ namespace LibraryManagementSystem
             Book newBook = new Book(title, author, year, description); ///add new book to the BookList
             BookList.Add(newBook);
             Console.WriteLine($"Book '{title}' by {author} added successfully!");
+            SaveBooks("filePath.json");
         }
 
         public Book SearchBooks(string title) ///Uses book class so that it can access original Title and compare it to the parameter
