@@ -21,7 +21,9 @@ class Program
 
         creatAccount.LoadAccounts(filePathAccounts);
 
-        while (true)
+        bool loggedIn = false;
+
+        while (!loggedIn)
         {
             Console.WriteLine("Create an account by pressing 1 or Login account by pressing 2");
             string LogInChoice = Console.ReadLine();
@@ -39,6 +41,7 @@ class Program
                     if (CheckAgent.Login()) // If login is successful
                     {
                         Console.WriteLine("Login successful! Welcome to the library system.");
+                        loggedIn = true;
                     }
                     else
                     {

@@ -24,7 +24,7 @@ namespace LibraryManagementSystem
                 Console.Write("Enter password: ");
                 string check_password = Console.ReadLine();
 
-                // Check if username and password match any account
+                
                 User matchedUser = null;
 
                 foreach (var account in accounts)
@@ -39,6 +39,7 @@ namespace LibraryManagementSystem
                 if (matchedUser != null)
                 {
                     Console.WriteLine("Login successful. Welcome, " + matchedUser.Username + "!");
+                    return true;
                      // continu3e to the next part of the program
                 }
                 else
