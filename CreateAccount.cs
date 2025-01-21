@@ -12,7 +12,7 @@ namespace LibraryManagementSystem
         public List<User> UserAccounts = new List<User>(); ///list to store created accounts
                                                            ///create user account
 
-        public void SaveAccounts(string filePathAccounts) ///enter the file where to store books
+        private void SaveAccounts(string filePathAccounts) ///enter the file where to store books
         {
             try
             {

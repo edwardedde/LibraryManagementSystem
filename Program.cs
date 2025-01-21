@@ -44,7 +44,6 @@ class Program
                     // Attempt login
                     if (CheckAgent.Login()) // If login is successful
                     {
-                        Console.WriteLine("Login successful! Welcome to the library system.");
                         loggedIn = true;
                     }
                     else
