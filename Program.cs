@@ -7,23 +7,31 @@ class Program
     {
         Library library = new Library();
         User user = new User(); ///empty instance so that user can be created
+        CreatAccount creatAccount = new CreatAccount();
+
         CheckUserAccount CheckAgent = new CheckUserAccount();
         
          
 
         string filePath = "library.json";
 
+        string filePathAccounts = "accounts.json"; ///to hold accounts created
+
         library.LoadBooks(filePath);
 
+        creatAccount.LoadAccounts(filePathAccounts);
 
-        Console.WriteLine("LogIn by pressing 1 or create account by pressing 2");
+        
+
+
+        Console.WriteLine("Create an account by pressing 1 or Login account by pressing 2");
         string LogInChoice = Console.ReadLine();
 
 
         switch (LogInChoice)
         {
             case "1":
-                User.CreateAccount(user);
+                creatAccount.CreateAccount(user);
                 break;
             case "2":
                 CheckAgent.Login(user);
