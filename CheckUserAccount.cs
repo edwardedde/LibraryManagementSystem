@@ -7,11 +7,13 @@ namespace LibraryManagementSystem
 {
     public class CheckUserAccount
     {
-
-        public List<User> UserAccounts = new List<User>();
+     
+        private string filePathAccounts = "accounts.json"; // Path to the accounts JSON file
 
         public bool Login()
         {
+            // Load accounts from the file
+            List<User> accounts = LoadAccounts();
 
             while (true)
             {
@@ -26,7 +28,7 @@ namespace LibraryManagementSystem
                 
                 User matchedUser = null;
 
-                foreach (var account in UserAccounts)
+                foreach (var account in accounts)
                 {
                     if (account.Username == check_username && account.Password == check_password)
                     {
@@ -48,24 +50,25 @@ namespace LibraryManagementSystem
             }
         }
 
-        public void LoadAccounts(string filePathAccounts)///enter the file where it should load from
+        private List<User> LoadAccounts()
         {
             try
             {
-                if (File.Exists(filePathAccounts)) ///checks if file exists
+                if (File.Exists(filePathAccounts)) // Check if the file exists
                 {
                     string json = File.ReadAllText(filePathAccounts);
-                    UserAccounts = JsonConvert.DeserializeObject<List<User>>(json);
-                    Console.WriteLine("Accounts loaded successfully.");///first reads text from file and then creates user objects from the json string and adds them into a List
+                    return JsonConvert.DeserializeObject<List<User>>(json);
                 }
                 else
                 {
-                    Console.WriteLine("No saved accounts found. checks if file exists");
+                    Console.WriteLine("No saved accounts found. Please create an account first.");
+                    return new List<User>();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred while loading the accounts: {ex.Message}");
+                return new List<User>();
             }
         }
     }

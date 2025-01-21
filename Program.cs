@@ -24,7 +24,7 @@ class Program
 
         library.LoadBooks(filePath);
 
-        CheckAgent.LoadAccounts(filePathAccounts);
+        creatAccount.LoadAccounts(filePathAccounts);
 
         bool loggedIn = false;
 
@@ -38,7 +38,6 @@ class Program
                 case "1":
                     // Create a new account
                     creatAccount.CreateAccounts(user);
-                    creatAccount.SaveAccounts(filePathAccounts);
                     break;
 
                 case "2":

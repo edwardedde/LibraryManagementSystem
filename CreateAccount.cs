@@ -26,6 +26,27 @@ namespace LibraryManagementSystem
             }
         }
 
+        public void LoadAccounts(string filePathAccounts)///enter the file where it should load from
+        {
+            try
+            {
+                if (File.Exists(filePathAccounts)) ///checks if file exists
+                {
+                    string json = File.ReadAllText(filePathAccounts);
+                    UserAccounts = JsonConvert.DeserializeObject<List<User>>(json);
+                    Console.WriteLine("Accounts loaded successfully.");///first reads text from file and then creates user objects from the json string and adds them into a List
+                }
+                else
+                {
+                    Console.WriteLine("No saved accounts found. checks if file exists");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while loading the accounts: {ex.Message}");
+            }
+        }
+
 
         public void CreateAccounts(User user)
         {
