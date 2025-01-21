@@ -34,7 +34,7 @@ class Program
                 creatAccount.CreateAccount(user);
                 break;
             case "2":
-                CheckAgent.Login(user);
+                CheckAgent.Login();
                 return ;
             default:
                 return;

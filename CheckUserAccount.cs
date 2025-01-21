@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    public class CheckUserAccount
+    public class CheckUserAccount : User
     {
         
-        public void Login(User user)
+        public void Login()
         {
             while (true)
             {
@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Enterpassword:");
                 var check_password = Console.ReadLine();
 
-                if (check_username == user.Username && check_password == user.Password)
+                if (check_username == Username && check_password == Password)
                 {
                     Console.WriteLine("Login successful");
 
