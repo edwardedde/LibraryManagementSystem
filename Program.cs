@@ -55,6 +55,7 @@ class Program
                         Console.WriteLine("Login failed. Try again!\n");
                     }
                     break;
+                    //case 3 log in as admin, admin can delete/modify or add a user
 
                 default:
                     Console.WriteLine("Invalid choice. Please try again.\n");
@@ -68,7 +69,7 @@ class Program
         while (true)
         {
 
-            Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit");
+            Console.WriteLine("1. Add a Book\n2. Search for a Book\n3. View All Books\n4. Delete a Book\n5. Edit book\n6.Exit\ns");
 
             Console.Write("Enter your choice: ");
             string Choice = Console.ReadLine();
@@ -94,7 +95,7 @@ class Program
                 case "6":
                     library.SaveBooks(filePathBooks);
                     return;
-                //case 7 to ask user if they want to access/delete or update an account
+                
                 default:
                     Console.WriteLine("-------\nInvalid input\n-------");
                     break;
