@@ -41,7 +41,7 @@ namespace LibraryManagementSystem
                 {
                     Console.WriteLine("Login successful. Welcome, " + matchedUser.Username + "!");
                     return true;
-                     // continu3e to the next part of the program
+                     // continue to the next part of the program
                 }
                 else
                 {
@@ -50,14 +50,14 @@ namespace LibraryManagementSystem
             }
         }
 
-        private List<User> LoadAccounts()
+        private List<User> LoadAccounts()//method that returns a list of User objects
         {
             try
             {
                 if (File.Exists(filePathAccounts)) // Check if the file exists
                 {
-                    string json = File.ReadAllText(filePathAccounts);
-                    return JsonConvert.DeserializeObject<List<User>>(json);
+                    string json = File.ReadAllText(filePathAccounts); //json string the text from the file 
+                    return JsonConvert.DeserializeObject<List<User>>(json); //turns the string into a list of User obejcts
                 }
                 else
                 {

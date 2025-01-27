@@ -7,9 +7,10 @@ class Program
 
     static void Main(string[] args)
     {
+        //instances of classes to access the methods
         Library library = new Library();
 
-        User user = new User(); ///empty instance so that user can be created
+        User user = new User(); 
 
         CreateAccount creatAccount = new CreateAccount();
 
@@ -17,18 +18,21 @@ class Program
         CheckUserAccount CheckAgent = new CheckUserAccount();
         
          
+        //files that hold books and accounts
+        string filePathBooks = "library.json";
 
-        string filePath = "library.json";
+        string filePathAccounts = "accounts.json"; 
 
-        string filePathAccounts = "accounts.json"; ///to hold accounts created
 
-        library.LoadBooks(filePath);
+        library.LoadBooks(filePathBooks);
 
         creatAccount.LoadAccounts(filePathAccounts);
 
         bool loggedIn = false;
 
-        while (!loggedIn)
+
+        //Main program starts
+        while (!loggedIn) // The loop will execute as long as 'loggedIn' is 'false'.
         {
             Console.WriteLine("Create an account by pressing 1 or Login account by pressing 2");
             string LogInChoice = Console.ReadLine();
@@ -48,7 +52,7 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Login failed. Returning to the main menu.\n");
+                        Console.WriteLine("Login failed. Try again!\n");
                     }
                     break;
 
@@ -60,7 +64,7 @@ class Program
 
         Console.WriteLine("Welcome to the Library Management System\n----------------------------------------");
 
-
+        //Library system starts
         while (true)
         {
 
@@ -88,8 +92,9 @@ class Program
                     library.EditBook();
                     break;
                 case "6":
-                    library.SaveBooks(filePath);
+                    library.SaveBooks(filePathBooks);
                     return;
+                //case 7 to ask user if they want to access/delete or update an account
                 default:
                     Console.WriteLine("-------\nInvalid input\n-------");
                     break;

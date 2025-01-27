@@ -9,32 +9,32 @@ namespace LibraryManagementSystem
 {
     public class CreateAccount
     {
-        public List<User> UserAccounts = new List<User>(); ///list to store created accounts
-                                                           ///create user account
+        public List<User> UserAccounts = new List<User>(); //list to store created accounts
+                                                           
 
-        private void SaveAccounts(string filePathAccounts) ///enter the file where to store books
+        private void SaveAccounts(string filePathAccounts) //enter the file where to store accounts
         {
             try
             {
-                string json = JsonConvert.SerializeObject(UserAccounts, Formatting.Indented); ///makes user objects into json string
-                File.WriteAllText(filePathAccounts, json); ///writes the string into the file
+                string json = JsonConvert.SerializeObject(UserAccounts, Formatting.Indented); //serializes user objects into json string
+                File.WriteAllText(filePathAccounts, json); //writes the string into the file
                 Console.WriteLine("Account saved successfully.");
             }
-            catch (Exception ex)///error handling, writes to console where error occured
+            catch (Exception ex)//error handling, writes to console where error occured
             {
                 Console.WriteLine($"An error occurred while saving the account: {ex.Message}");
             }
         }
 
-        public void LoadAccounts(string filePathAccounts)///enter the file where it should load from
+        public void LoadAccounts(string filePathAccounts)//enter the file where it should load from
         {
             try
             {
-                if (File.Exists(filePathAccounts)) ///checks if file exists
+                if (File.Exists(filePathAccounts)) //checks if file exists
                 {
-                    string json = File.ReadAllText(filePathAccounts);
-                    UserAccounts = JsonConvert.DeserializeObject<List<User>>(json);
-                    Console.WriteLine("Accounts loaded successfully.");///first reads text from file and then creates user objects from the json string and adds them into a List
+                    string json = File.ReadAllText(filePathAccounts);//reads text from file
+                    UserAccounts = JsonConvert.DeserializeObject<List<User>>(json);//creates user objects from the json string adds them into a List
+                    Console.WriteLine("Accounts loaded successfully.");
                 }
                 else
                 {
@@ -61,14 +61,14 @@ namespace LibraryManagementSystem
                 Console.WriteLine("Insert a new username:");
                 username = Console.ReadLine();
 
-                if (username.Length > 6)
+                if (username.Length > 6)//minimum lenght for username
                 {
                     user.Username = username;
 
                     Console.WriteLine("Insert a new Password:");
                     password = Console.ReadLine();
                     
-                    if(password.Length > 6)
+                    if(password.Length > 6)//minimum lenght for password
                     {
                         user.Password = password;
                         Console.WriteLine($"User {username} created, now you can use the system\n-------");
@@ -77,7 +77,7 @@ namespace LibraryManagementSystem
                     }
                     else
                     {
-                        Console.WriteLine("password must be longer than 6 symbols");
+                        Console.WriteLine("password must be longer than 6 symbols, try again!");
                     }
 
                 }
@@ -87,8 +87,8 @@ namespace LibraryManagementSystem
                 }
 
             }
-            User newUser = new User(username, password); ///add new user to list
-            UserAccounts.Add(newUser);
+            User newUser = new User(username, password); 
+            UserAccounts.Add(newUser); //add new user to list UserAccounts 
             Console.WriteLine($"{username} created successfully!");
             SaveAccounts("accounts.json");
         }
